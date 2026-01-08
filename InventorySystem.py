@@ -12,16 +12,17 @@ load_dotenv()
 
 def connection():
     password = os.getenv('DB_PASSWORD')
-    return pyodbc.connect(
-        'Driver={ODBC Driver 17 for SQL Server};'
-        'Server=servidor-yeilen.database.windows.net;'
-        'Database=InventoryDB;'
-        'Uid=yeilen-ramos;'
-        f'Pwd={password};'
+    conn_str = (
+        'DRIVER={ODBC Driver 17 for SQL Server};'
+        'SERVER=servidor-yeilen.database.windows.net;'
+        'DATABASE=InventoryDB;'
+        'UID=yeilen-ramos;'
+        f'PWD={password};'
         'Encrypt=yes;'
         'TrustServerCertificate=no;'
         'Connection Timeout=30;'
-        )
+    )
+    return pyodbc.connect(conn_str)
 
 @app.route('/')
 def home():
