@@ -19,7 +19,7 @@ def connection():
         'UID=yeilen-ramos;'
         f'PWD={password};'
         'Encrypt=yes;'
-        'TrustServerCertificate=no;'
+        'TrustServerCertificate=yes;'
         'Connection Timeout=30;'
     )
     return pyodbc.connect(conn_str)
