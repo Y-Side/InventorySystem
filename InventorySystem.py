@@ -25,7 +25,7 @@ def connection():
 
 @app.route('/')
 def home():
-    return render_template('InventorySystem.html')
+    return render_template('inventorySystem.html')
 
 
 @app.get('/listProducts')
