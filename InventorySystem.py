@@ -12,9 +12,8 @@ load_dotenv()
 
 def connection():
     password = os.getenv('DB_PASSWORD')
-    driver_path = '/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.10.so.1.1'
     conn_str = (
-        f'DRIVER={{{driver_path}}};'
+        'DRIVER={ODBC Driver 18 for SQL Server};'
         'SERVER=servidor-yeilen.database.windows.net;'
         'DATABASE=InventoryDB;'
         'UID=yeilen-ramos;'
