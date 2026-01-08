@@ -24,7 +24,7 @@ let searchBox = document.getElementById('searchBox')
 let data = []
 
 async function loadProducts() {
-    const res = await fetch('https://candra-interepidemic-uncriticizably.ngrok-free.dev/listProducts');
+    const res = await fetch('/listProducts');
     data = await res.json()
 } 
 
@@ -72,7 +72,7 @@ function renderTable(items) {
     //loading Total inventory
     async function totalLoad() {
 
-        const res = await fetch('https://candra-interepidemic-uncriticizably.ngrok-free.dev/totalProducts')
+        const res = await fetch('/totalProducts')
         const data = await res.json()
 
         totalItems.innerHTML = data['totalItems']
@@ -92,7 +92,7 @@ function renderTable(items) {
             "price": price.value
         }
 
-        let result = await fetch('https://candra-interepidemic-uncriticizably.ngrok-free.dev/addItem', {
+        let result = await fetch('/addItem', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -148,7 +148,7 @@ function renderTable(items) {
         if (!ok) return
 
         try {
-            const res = await fetch(`https://candra-interepidemic-uncriticizably.ngrok-free.dev/deleteItem/${productId}`, {
+            const res = await fetch(`/deleteItem/${productId}`, {
                 method: 'DELETE'
             })
             if (!res.ok) {
@@ -206,7 +206,7 @@ function renderTable(items) {
         }
 
         try {
-            const res = await fetch(`https://candra-interepidemic-uncriticizably.ngrok-free.dev/editItem`, {
+            const res = await fetch(`/editItem`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
