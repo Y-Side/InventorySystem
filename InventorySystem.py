@@ -13,7 +13,7 @@ load_dotenv()
 def connection():
     password = os.getenv('DB_PASSWORD')
     conn_str = (
-        'DRIVER={ODBC Driver 18 for SQL Server};'
+        'DRIVER={ODBC Driver 17 for SQL Server};'
         'SERVER=servidor-yeilen.database.windows.net;'
         'DATABASE=InventoryDB;'
         'UID=yeilen-ramos;'
